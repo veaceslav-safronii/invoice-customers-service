@@ -47,6 +47,7 @@ router.post('/', authenticate, async (req, res) => {
       [name, email, phone, address]
     );
     res.status(201).json(result.rows[0]);
+    sendLog('customers-service', `Customer created: ${name}`);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Internal server error' });
@@ -88,6 +89,7 @@ router.delete('/:id', authenticate, async (req, res) => {
       return res.status(404).json({ error: 'Customer not found' });
     }
     res.json({ message: 'Customer deleted', id: result.rows[0].id });
+    sendLog('customers-service', `Customer deleted: ${req.params.id}`);
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Internal server error' });
