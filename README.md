@@ -1,6 +1,6 @@
 # invoice-customers-service
 
-Customers management microservice for the Invoice System project (IDP – UPB 342C5).
+Customers management microservice for the Invoice System
 
 ## Endpoints
 
